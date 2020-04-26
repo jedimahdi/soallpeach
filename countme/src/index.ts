@@ -17,13 +17,19 @@ app.post('/', (req, res) => {
   if (typeof req.body === 'object') {
     newNumberStr = Object.keys(req.body)[0]
   }
-  sum += parseInt(newNumberStr, 10)
 
-  res.send(newNumberStr)
+  const n = parseInt(newNumberStr, 10)
+
+  if (isNaN(n)) {
+    return res.sendStatus(400)
+  }
+  sum += n
+
+  res.sendStatus(200)
 })
 
 app.get('/count', (req, res) => {
-  res.send(String(sum))
+  res.status(200).send(`${sum}`)
 })
 
 app.listen(80, () => {})
