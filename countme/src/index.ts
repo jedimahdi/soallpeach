@@ -17,7 +17,7 @@ app.post('/', (req, res) => {
   if (typeof req.body === 'object') {
     newNumberStr = Object.keys(req.body)[0]
   }
-  sum += parseInt(newNumberStr)
+  sum += parseInt(newNumberStr, 10)
 
   res.send(newNumberStr)
 })
