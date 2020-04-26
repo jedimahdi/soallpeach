@@ -26,4 +26,4 @@ app.get('/count', (req, res) => {
   res.send(String(sum))
 })
 
-app.listen(3000, () => {})
+app.listen(80, () => {})
