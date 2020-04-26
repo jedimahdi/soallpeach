@@ -9,7 +9,14 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/', (req, res) => {
-  const newNumberStr = Object.keys(req.body)[0]
+  let newNumberStr = '0'
+  if (typeof req.body === 'string') {
+    newNumberStr = req.body
+  }
+
+  if (typeof req.body === 'object') {
+    newNumberStr = Object.keys(req.body)[0]
+  }
   sum += parseInt(newNumberStr)
 
   res.send(newNumberStr)
