@@ -10,4 +10,5 @@ ADD . /usr/src/app
 
 RUN npm run build-ts
 
-ENTRYPOINT ["node", "dist/index.js"]
+EXPOSE 80
+CMD [ "node", "dist/index.js" ]
